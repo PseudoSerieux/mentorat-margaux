@@ -1,0 +1,37 @@
+<!-- Exercise 10 — NgOptimizedImage -->
+<section class="exercise">
+  <h2>NgOptimizedImage</h2>
+
+  <!--
+    TODO 1: Replace the regular <img> tags below with NgOptimizedImage syntax.
+
+    Regular img:
+      <img src="..." alt="..." />
+
+    NgOptimizedImage:
+      <img ngSrc="..." alt="..." width="800" height="400" />
+
+    Key attributes:
+      ngSrc     → replaces src (triggers the directive)
+      width     → required (prevents layout shift)
+      height    → required (prevents layout shift)
+      priority  → add to the FIRST/LCP image (disables lazy load, adds preload link)
+      fill      → stretches image to fill container (use instead of width+height)
+  -->
+
+  @for (image of images; track image.src; let first = $first) {
+    <!-- TODO 2: Use ngSrc, width, height from the image object -->
+    <!-- TODO 3: Add 'priority' attribute only to the first image (hint: use [priority]="first") -->
+    <img
+      src="{{ image.src }}"
+      alt="{{ image.alt }}"
+      style="max-width: 100%; display: block; margin: 8px 0;"
+    />
+  }
+
+  <!--
+    TODO 4 (bonus): Open DevTools Network tab — filter by "Img".
+    Notice: non-priority images load lazily (only when near viewport).
+    The first image (priority) triggers a <link rel="preload"> in <head>.
+  -->
+</section>

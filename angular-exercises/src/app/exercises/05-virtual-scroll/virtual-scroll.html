@@ -1,0 +1,25 @@
+<!-- Exercise 5 — Virtual Scroll -->
+<section class="exercise">
+  <h2>Virtual Scroll — {{ items.length }} items</h2>
+
+  <!--
+    TODO 5: Replace the regular list below with a CDK virtual scroll container.
+
+    Structure:
+    <cdk-virtual-scroll-viewport itemSize="48" style="height: 400px;">
+      <div *cdkVirtualFor="let item of items" class="item">
+        {{ item }}
+      </div>
+    </cdk-virtual-scroll-viewport>
+
+    itemSize = height of each row in px (must be fixed)
+    Open DevTools Elements tab while scrolling — watch DOM nodes stay constant!
+  -->
+
+  <!-- Remove this regular list once you add the virtual scroll above -->
+  <ul>
+    @for (item of items; track item) {
+      <li>{{ item }}</li>
+    }
+  </ul>
+</section>

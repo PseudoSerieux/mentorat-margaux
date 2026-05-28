@@ -1,0 +1,30 @@
+<!-- Exercise 6 — New Control Flow Syntax -->
+<section class="exercise">
+  <h2>Product List</h2>
+
+  <!--
+    TODO 1: Replace the comment below with @for to loop over products.
+    Syntax:
+      @for (product of products; track product.id) {
+        ...
+      } @empty {
+        <p>No products found.</p>
+      }
+    Note: 'track' is REQUIRED in @for (unlike *ngFor where it was optional).
+    It's like React's 'key' prop — helps Angular identify which items changed.
+  -->
+
+  <!-- TODO 2: Inside the @for, show each product's name and a (click) to select() it -->
+
+  <!-- TODO 3: Use @if to show an 'Out of stock' badge when product.inStock is false -->
+  <!--         @if (product.inStock) { <span>✓</span> } @else { <span>Out of stock</span> } -->
+
+  <!-- TODO 4: Use @switch on product.category to show a different emoji per category:
+       electronics → 💻  |  clothing → 👕  |  food → 🍎
+  -->
+
+  <!-- TODO 5: Outside the loop, use @if to show the selected product details -->
+  <!--         @if (selected()) { ... selected product card ... } -->
+
+  <p><em>Add your &#64;for loop above!</em></p>
+</section>

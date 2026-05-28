@@ -1,0 +1,40 @@
+<!-- Exercise 7 — Deferred Loading -->
+<section class="exercise">
+  <h2>&#64;defer Demo</h2>
+
+  <p>Scroll down or click the button to trigger lazy loading.</p>
+
+  <!--
+    TODO 1: Wrap the "heavy" content below in a @defer block triggered on interaction.
+
+    @defer (on interaction) {
+      <div class="heavy-content">
+        <h3>Heavy Component Loaded! 🎉</h3>
+        <p>This was lazy-loaded when you interacted.</p>
+      </div>
+    } @placeholder {
+      <button>Click to load content</button>
+    } @loading (minimum 500ms) {
+      <p>Loading...</p>
+    }
+
+    The 'minimum' option prevents a loading flash for fast loads.
+  -->
+
+  <!--
+    TODO 2: Add a second @defer block triggered on viewport (scroll to see it):
+
+    @defer (on viewport) {
+      <p>👋 You scrolled to see this!</p>
+    } @placeholder {
+      <div style="height: 200px; border: 2px dashed #ccc; display:grid; place-items:center">
+        Scroll here to load
+      </div>
+    }
+  -->
+
+  <!--
+    TODO 3 (bonus): Try @defer (when showHeavy()) and wire the button below.
+  -->
+  <button (click)="load()">Load (when trigger)</button>
+</section>

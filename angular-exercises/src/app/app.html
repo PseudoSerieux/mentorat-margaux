@@ -1,0 +1,29 @@
+<div class="layout">
+  <nav class="sidebar">
+    <h1>Angular Exercises</h1>
+    @for (ex of exercises; track ex.id) {
+      <button
+        class="nav-item"
+        [class.active]="active() === ex.id"
+        (click)="select(ex.id)"
+      >
+        {{ ex.label }}
+      </button>
+    }
+  </nav>
+
+  <main class="content">
+    @switch (active()) {
+      @case (1)  { <div class="exercise"><h2>01 — Angular CLI</h2><p>Read <code>src/app/exercises/01-cli-basics/README.md</code> and follow the steps in your terminal.</p></div> }
+      @case (2)  { <app-standalone /> }
+      @case (3)  { <app-form-builder /> }
+      @case (4)  { <app-signals /> }
+      @case (5)  { <app-virtual-scroll /> }
+      @case (6)  { <app-control-flow /> }
+      @case (7)  { <app-defer-demo /> }
+      @case (8)  { <app-inject-demo /> }
+      @case (9)  { <app-signal-inputs /> }
+      @case (10) { <app-optimized-image /> }
+    }
+  </main>
+</div>
