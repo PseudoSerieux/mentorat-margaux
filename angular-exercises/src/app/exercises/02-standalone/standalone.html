@@ -6,5 +6,8 @@
   <!-- TODO 7: Display user using JsonPipe: {{ user | json }} -->
   <!-- TODO 8: Try another DatePipe format like 'short' or 'EEEE, MMM d' -->
 
-  <p><em>Replace this with your template code!</em></p>
+  <p>{{ today | date:'longDate' }}</p>
+  <p>{{ user | json }}</p>
+  <p>{{ today | date:'short' }}</p>
+  <p>{{ today | date:'EEEE, MMM d' }}</p>
 </section>
