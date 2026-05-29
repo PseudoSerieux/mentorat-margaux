@@ -3,12 +3,17 @@
   <h2>Signal Counter</h2>
 
   <!-- TODO 8: Display count() — note: signals are called like functions in templates -->
-  <p>Count: <strong>???</strong></p>
+  <p>Count: <strong>{{count()}}</strong></p>
 
   <!-- TODO 9: Display the doubled computed signal -->
-  <p>Doubled: <strong>???</strong></p>
+  <p>Doubled: <strong> {{ doubled() }}</strong></p>
 
   <!-- TODO 10: Display isEven — show "Even" or "Odd" using @if -->
+@if (isEven()) {
+  <p>Even</p>
+} @else {
+  <p>Odd</p>
+}
 
   <div class="controls">
     <!-- TODO 11: Wire up the three buttons -->

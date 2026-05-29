@@ -3,22 +3,33 @@
 // FormBuilder is a helper service that creates FormGroups and FormControls.
 // Since Angular 14, forms are strictly typed — no more `any` value types.
 // Use `inject(FormBuilder)` (exercise 8 sneak peek!) to get the service.
+import { JsonPipe } from '@angular/common';
 
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-// TODO 1: Import JsonPipe from '@angular/common' to debug form values
 
 @Component({
   selector: 'app-form-builder',
   imports: [
     ReactiveFormsModule,
-    // TODO 2: Add JsonPipe
+    JsonPipe
   ],
   templateUrl: './form-builder.html',
   styleUrl: './form-builder.scss',
 })
 export class FormBuilderExercise {
   private fb = inject(FormBuilder);
+
+  loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  });
+
+  onSubmit(){
+    if (this.loginForm.valid){
+      console.log(this.loginForm.value);
+    }
+  }
 
   // TODO 3: Create a 'loginForm' FormGroup using this.fb.group({})
   // It should have:

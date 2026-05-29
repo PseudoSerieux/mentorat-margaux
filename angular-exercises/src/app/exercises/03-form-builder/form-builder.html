@@ -4,26 +4,31 @@
 
   <!-- TODO 5: Bind this form to your loginForm using [formGroup]="loginForm" -->
   <!-- TODO 6: Add (ngSubmit)="onSubmit()" to the form tag -->
-  <form>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="email">Email</label>
       <!-- TODO 7: Add formControlName="email" to this input -->
-      <input id="email" type="email" placeholder="you@example.com" />
+      <input id="email" type="email" placeholder="you@example.com" formControlName="email" />
       <!-- TODO 8: Show a validation error when email is invalid and touched -->
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error">
+        Please enter a valid email.
+      </div>
       <!-- Hint: loginForm.get('email')?.invalid && loginForm.get('email')?.touched -->
     </div>
 
     <div>
       <label for="password">Password</label>
       <!-- TODO 9: Add formControlName="password" to this input -->
-      <input id="password" type="password" placeholder="Min 6 characters" />
+      <input id="password" type="password" placeholder="Min 6 characters" formControlName="password" />
     </div>
 
     <!-- TODO 10: Disable the button when the form is invalid -->
     <!-- Hint: [disabled]="loginForm.invalid" -->
-    <button type="submit">Login</button>
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
   </form>
 
+<p> {{ loginForm.value | json }}</p>
+<p> {{ loginForm.status }}</p>
   <!-- TODO 11: Show form value for debugging: {{ loginForm.value | json }} -->
   <!-- TODO 12: Show form status: {{ loginForm.status }} -->
 </section>
