@@ -13,7 +13,29 @@
     Note: 'track' is REQUIRED in @for (unlike *ngFor where it was optional).
     It's like React's 'key' prop — helps Angular identify which items changed.
   -->
+      @for (product of products; track product.id) {
+        <div class="product" (click)="select(product)">
+          <h3>{{ product.name }}</h3>
+          <!-- TODO 3: Use @if to show an 'Out of stock' badge when product.inStock is false -->
+          @if (product.inStock) {
+            <span class="in-stock">✓ In Stock</span>
+          } @else {
+            <span class="out-of-stock">Out of stock</span>
+          }
 
+          <!-- TODO 4: Use @switch on product.category to show a different emoji per category:
+               electronics → 💻  |  clothing → 👕  |  food → 🍎
+          -->
+          @switch (product.category) {
+            @case ('electronics') { <span>💻</span> }
+            @case ('clothing') { <span>👕</span> }
+            @case ('food') { <span>🍎</span> }
+            @default { <span>❓</span> }
+          }
+        </div>
+      } @empty {
+        <p>No products found.</p>
+      } @if (selected()) { {{selected()?.name}} selected product card ... }
   <!-- TODO 2: Inside the @for, show each product's name and a (click) to select() it -->
 
   <!-- TODO 3: Use @if to show an 'Out of stock' badge when product.inStock is false -->
@@ -25,6 +47,4 @@
 
   <!-- TODO 5: Outside the loop, use @if to show the selected product details -->
   <!--         @if (selected()) { ... selected product card ... } -->
-
-  <p><em>Add your &#64;for loop above!</em></p>
 </section>

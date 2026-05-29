@@ -20,7 +20,16 @@
 
     The 'minimum' option prevents a loading flash for fast loads.
   -->
-
+    @defer (on interaction) {
+      <div class="heavy-content">
+        <h3>Heavy Component Loaded! 🎉</h3>
+        <p>This was lazy-loaded when you interacted.</p>
+      </div>
+    } @placeholder {
+      <button>Click to load content</button>
+    } @loading (minimum 500ms) {
+      <p>Loading...</p>
+    }
   <!--
     TODO 2: Add a second @defer block triggered on viewport (scroll to see it):
 
@@ -32,9 +41,23 @@
       </div>
     }
   -->
-
+    @defer (on viewport) {
+      <p>👋 You scrolled to see this!</p>
+    } @placeholder {
+      <div style="height: 200px; border: 2px dashed #ccc; display:grid; place-items:center">
+        Scroll here to load
+      </div>
+    }
   <!--
     TODO 3 (bonus): Try @defer (when showHeavy()) and wire the button below.
   -->
+    @defer (when showHeavy()) {
+      <div class="heavy-content">
+        <h3>Heavy Component Loaded! 🎉</h3>
+        <p>This was lazy-loaded when you clicked the button.</p>
+      </div>
+    } @placeholder {
+      <button (click)="load()">Click to load content</button>
+    }
   <button (click)="load()">Load (when trigger)</button>
 </section>
