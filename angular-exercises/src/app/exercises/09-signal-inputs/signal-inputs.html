@@ -16,7 +16,14 @@
     Note: [name]="name" binds to the input() signal.
     (dismissed)="..." listens to the output() event.
   -->
-
+    @for (name of names(); track name) {
+      <app-greeting-card
+        [name]="name"
+        greeting="Good to see you!"
+        (dismissed)="onDismiss(name)"
+      />
+    }
+    
   @if (dismissed().length > 0) {
     <p>Dismissed: {{ dismissed().join(', ') }}</p>
   }

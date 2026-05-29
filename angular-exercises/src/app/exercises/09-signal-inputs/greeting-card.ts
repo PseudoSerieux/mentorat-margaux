@@ -10,10 +10,10 @@ import { Component, input, output } from '@angular/core';
   template: `
     <div class="card">
       <!-- TODO 4: Display the name input signal: {{ name() }} -->
-      <h3>Hello, ???</h3>
+      <h3>Hello, {{ name() }}</h3>
 
       <!-- TODO 5: Display the greeting input (with default value) -->
-      <p>???</p>
+      <p>{{ greeting() }}</p>
 
       <!-- TODO 6: Wire the button to emit the 'dismissed' output -->
       <button (click)="dismissed.emit()">Dismiss</button>
@@ -25,7 +25,7 @@ import { Component, input, output } from '@angular/core';
 })
 export class GreetingCard {
   // TODO 1: Replace with input.required<string>()
-  name = input('');
+  name = input.required<string>();
 
   // TODO 2: Replace with input('Welcome!')
   greeting = input('Welcome!');

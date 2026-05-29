@@ -25,6 +25,8 @@ export class SignalInputs {
   dismissed = signal<string[]>([]);
 
   onDismiss(name: string) {
+    this.names.update(list => list.filter(n => n !== name));
+    this.dismissed.update(list => [...list, name]);
     // TODO 8: Remove 'name' from the names signal
     // Hint: this.names.update(list => list.filter(n => n !== name));
     // Also add name to the dismissed list

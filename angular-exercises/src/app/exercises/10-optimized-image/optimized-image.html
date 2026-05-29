@@ -23,9 +23,10 @@
     <!-- TODO 2: Use ngSrc, width, height from the image object -->
     <!-- TODO 3: Add 'priority' attribute only to the first image (hint: use [priority]="first") -->
     <img
-      src="{{ image.src }}"
+      ngSrc="{{ image.src }}"
       alt="{{ image.alt }}"
-      style="max-width: 100%; display: block; margin: 8px 0;"
+      width="800" height="400"
+      [priority]="first"
     />
   }
 
